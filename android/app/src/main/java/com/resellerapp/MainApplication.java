@@ -12,7 +12,7 @@ import com.facebook.soloader.SoLoader;
 import com.resellerapp.newarchitecture.MainApplicationReactNativeHost;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-
+import com.airbnb.android.react.lottie.LottiePackage;
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =

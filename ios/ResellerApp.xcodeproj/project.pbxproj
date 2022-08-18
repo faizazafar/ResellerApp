@@ -14,6 +14,14 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-ResellerApp-ResellerAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-ResellerApp-ResellerAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		ABD8E677C6F4424396689F83 /* chord.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AD1B29DA37947059F679846 /* chord.ttf */; };
+		5BFD295F135C4A3E918B2275 /* DancingScript-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92E8E821D1314E7B8BC7F746 /* DancingScript-VariableFont_wght.ttf */; };
+		EA15838A7C9F44A2A4B60ACC /* RubikMaze-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9187313B22C41D3B30425D9 /* RubikMaze-Regular.ttf */; };
+		9803DB42600746E1B8487FE1 /* JuliusSansOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD1EE5453AF14A46B24D5C81 /* JuliusSansOne-Regular.ttf */; };
+		CB160E12F3884534B3944B0F /* Marcellus-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9F5DA38531C477F9333C6D7 /* Marcellus-Regular.ttf */; };
+		49FAD8C3FC5E4147AA2CFA3A /* NanumMyeongjo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9589B21D10C2484FA8CA8B4C /* NanumMyeongjo-Bold.ttf */; };
+		8FC5C378EA234C7C89F1225C /* NanumMyeongjo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B3E18B912CD4B2C853A3170 /* NanumMyeongjo-ExtraBold.ttf */; };
+		D64A7F5D36DC4260A8426EBD /* NanumMyeongjo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43B3C534E6A54F308715C0D6 /* NanumMyeongjo-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +52,14 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ResellerApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-ResellerApp-ResellerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResellerApp-ResellerAppTests.release.xcconfig"; path = "Target Support Files/Pods-ResellerApp-ResellerAppTests/Pods-ResellerApp-ResellerAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		2AD1B29DA37947059F679846 /* chord.ttf */ = {isa = PBXFileReference; name = "chord.ttf"; path = "../assets/fonts/chord.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		92E8E821D1314E7B8BC7F746 /* DancingScript-VariableFont_wght.ttf */ = {isa = PBXFileReference; name = "DancingScript-VariableFont_wght.ttf"; path = "../assets/fonts/DancingScript-VariableFont_wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F9187313B22C41D3B30425D9 /* RubikMaze-Regular.ttf */ = {isa = PBXFileReference; name = "RubikMaze-Regular.ttf"; path = "../assets/fonts/RubikMaze-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BD1EE5453AF14A46B24D5C81 /* JuliusSansOne-Regular.ttf */ = {isa = PBXFileReference; name = "JuliusSansOne-Regular.ttf"; path = "../assets/fonts/JuliusSansOne-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F9F5DA38531C477F9333C6D7 /* Marcellus-Regular.ttf */ = {isa = PBXFileReference; name = "Marcellus-Regular.ttf"; path = "../assets/fonts/Marcellus-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9589B21D10C2484FA8CA8B4C /* NanumMyeongjo-Bold.ttf */ = {isa = PBXFileReference; name = "NanumMyeongjo-Bold.ttf"; path = "../assets/fonts/NanumMyeongjo-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0B3E18B912CD4B2C853A3170 /* NanumMyeongjo-ExtraBold.ttf */ = {isa = PBXFileReference; name = "NanumMyeongjo-ExtraBold.ttf"; path = "../assets/fonts/NanumMyeongjo-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		43B3C534E6A54F308715C0D6 /* NanumMyeongjo-Regular.ttf */ = {isa = PBXFileReference; name = "NanumMyeongjo-Regular.ttf"; path = "../assets/fonts/NanumMyeongjo-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +138,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				0CC3D900E166490F9C60B661 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +164,22 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		0CC3D900E166490F9C60B661 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				2AD1B29DA37947059F679846 /* chord.ttf */,
+				92E8E821D1314E7B8BC7F746 /* DancingScript-VariableFont_wght.ttf */,
+				F9187313B22C41D3B30425D9 /* RubikMaze-Regular.ttf */,
+				BD1EE5453AF14A46B24D5C81 /* JuliusSansOne-Regular.ttf */,
+				F9F5DA38531C477F9333C6D7 /* Marcellus-Regular.ttf */,
+				9589B21D10C2484FA8CA8B4C /* NanumMyeongjo-Bold.ttf */,
+				0B3E18B912CD4B2C853A3170 /* NanumMyeongjo-ExtraBold.ttf */,
+				43B3C534E6A54F308715C0D6 /* NanumMyeongjo-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +277,14 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				ABD8E677C6F4424396689F83 /* chord.ttf in Resources */,
+				5BFD295F135C4A3E918B2275 /* DancingScript-VariableFont_wght.ttf in Resources */,
+				EA15838A7C9F44A2A4B60ACC /* RubikMaze-Regular.ttf in Resources */,
+				9803DB42600746E1B8487FE1 /* JuliusSansOne-Regular.ttf in Resources */,
+				CB160E12F3884534B3944B0F /* Marcellus-Regular.ttf in Resources */,
+				49FAD8C3FC5E4147AA2CFA3A /* NanumMyeongjo-Bold.ttf in Resources */,
+				8FC5C378EA234C7C89F1225C /* NanumMyeongjo-ExtraBold.ttf in Resources */,
+				D64A7F5D36DC4260A8426EBD /* NanumMyeongjo-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

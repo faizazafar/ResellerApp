@@ -4,6 +4,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import AuthStack from './AuthStack';
 import MainStack from './MainStack';
+import Splash from '../Views/Splash';
+import Onboarding from '../Views/Onboarding';
 
 const Root = () => {
   const Root = createNativeStackNavigator();
@@ -12,7 +14,21 @@ const Root = () => {
     <NavigationContainer>
       <Root.Navigator
         screenOptions={{headerShown: false}}
-        initialRouteName={'AuthStack'}>
+        initialRouteName={'Splash'}>
+        <Root.Screen
+          name="Splash"
+          component={Splash}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Root.Screen
+          name="Onboarding"
+          component={Onboarding}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Root.Screen
           name="AuthStack"
           component={AuthStack}

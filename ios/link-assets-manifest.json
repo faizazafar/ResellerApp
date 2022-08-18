@@ -1,0 +1,37 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/chord.ttf",
+      "sha1": "b72be0b778584bf880a45cc0374822a4e74f3026"
+    },
+    {
+      "path": "assets/fonts/DancingScript-VariableFont_wght.ttf",
+      "sha1": "f6ef1641594430e8367d9c26819a900c879b8f35"
+    },
+    {
+      "path": "assets/fonts/JuliusSansOne-Regular.ttf",
+      "sha1": "d66ed30f0709dcc4707d1f62158274814e8690b1"
+    },
+    {
+      "path": "assets/fonts/Marcellus-Regular.ttf",
+      "sha1": "a83ca5e1e8dbf8316177ff5f2f360ea3e1708981"
+    },
+    {
+      "path": "assets/fonts/NanumMyeongjo-Bold.ttf",
+      "sha1": "8baf69da80267531bcfdb1de2a1aa627202ec1f2"
+    },
+    {
+      "path": "assets/fonts/NanumMyeongjo-ExtraBold.ttf",
+      "sha1": "5d097414542f9dbb7a97227b5df9e6c33abe9323"
+    },
+    {
+      "path": "assets/fonts/NanumMyeongjo-Regular.ttf",
+      "sha1": "3b43f237f492c0a689067d305f4cd208ad79f8ef"
+    },
+    {
+      "path": "assets/fonts/RubikMaze-Regular.ttf",
+      "sha1": "d0add7f988681422fea844b19f8e3ba1c418f854"
+    }
+  ]
+}
