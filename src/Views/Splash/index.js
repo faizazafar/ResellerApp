@@ -1,7 +1,8 @@
-import {Text, View} from 'react-native';
+import {Text, View, Dimensions} from 'react-native';
 import React, {Component} from 'react';
 import Lottie from 'lottie-react-native';
-
+const window = Dimensions.get('window');
+const screen = Dimensions.get('screen');
 export default class index extends Component {
   componentDidMount() {
     setTimeout(() => {
@@ -26,7 +27,7 @@ export default class index extends Component {
             position: 'absolute',
             left: 0,
             right: 0,
-            top: 400,
+            top: screen.height /2.5 ,
             bottom: 0,
             zIndex: 99,
             fontWeight: '900',
@@ -40,7 +41,7 @@ export default class index extends Component {
               position: 'absolute',
               left: 0,
               right: 0,
-              top: 350,
+              top:200,
               bottom: 0,
               zIndex: 99,
               fontWeight: '900',

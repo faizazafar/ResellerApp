@@ -1,5 +1,9 @@
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {Image, Text, TouchableOpacity, View, Dimensions} from 'react-native';
 import React, {Component} from 'react';
+const window = Dimensions.get('window');
+const screen = Dimensions.get('screen');
+
+console.log(screen.height)
 export default class index extends Component {
   state = {
     selected: '',
@@ -8,13 +12,13 @@ export default class index extends Component {
     return (
       <View style={{justifyContent: 'center', flex: 1}}>
         <Image
-          style={{width: '100%', height: 320, resizeMode: 'contain'}}
+          style={{width: '100%', height: screen.height / 2.8, resizeMode: 'contain'}}
           source={require('../../Images/ob2.png')}
         />
         <Text
           style={{
             marginTop: 40,
-            fontSize: 50,
+            fontSize: 40,
             color: 'black',
             textAlign: 'center',
             flex: 1,
@@ -27,7 +31,7 @@ export default class index extends Component {
             style={{
               padding: 10,
               flex: 0.4,
-              backgroundColor: '#d81536',
+              backgroundColor: '#d44f46',
               justifyContent: 'flex-end',
             }}
             onPress={() => {
@@ -50,7 +54,7 @@ export default class index extends Component {
             style={{
               padding: 10,
               flex: 0.4,
-              backgroundColor: '#d81536',
+              backgroundColor: '#d44f46',
               justifyContent: 'flex-end',
             }}
             onPress={() => {
@@ -77,13 +81,13 @@ export default class index extends Component {
     return (
       <View style={{justifyContent: 'center', flex: 1}}>
         <Image
-          style={{width: '100%', height: 320, resizeMode: 'contain'}}
+          style={{width: '100%', height: screen.height / 2.8 , resizeMode: 'contain'}}
           source={require('../../Images/ob3.png')}
         />
         <Text
           style={{
             marginTop: 40,
-            fontSize: 50,
+            fontSize: 40,
             color: 'black',
             textAlign: 'center',
             flex: 1,
@@ -96,7 +100,7 @@ export default class index extends Component {
             style={{
               padding: 10,
               flex: 0.4,
-              backgroundColor: '#d81536',
+              backgroundColor: '#d44f46',
               justifyContent: 'flex-end',
             }}
             onPress={() => {
@@ -119,11 +123,12 @@ export default class index extends Component {
             style={{
               padding: 10,
               flex: 0.4,
-              backgroundColor: '#d81536',
+              backgroundColor: '#d44f46',
               justifyContent: 'flex-end',
             }}
             onPress={() => {
               this.setState({selected: 'three'});
+              this.props.navigation.replace('AuthStack');
               //   this.renderOnboardingOne();
             }}>
             <View style={{justifyContent: 'flex-end'}}>
@@ -146,14 +151,14 @@ export default class index extends Component {
     return (
       <View style={{flex: 1}}>
         <Image
-          style={{width: '100%', height: 320, resizeMode: 'contain'}}
+          style={{width: '100%', height: screen.height / 2.8, resizeMode: 'contain'}}
           source={require('../../Images/ob1.png')}
         />
         <Text
           style={{
             paddingHorizontal: 30,
-            marginTop: 40,
-            fontSize: 50,
+            marginTop: 50,
+            fontSize: 40,
             color: 'black',
             textAlign: 'center',
             flex: 1,
@@ -165,7 +170,7 @@ export default class index extends Component {
         <TouchableOpacity
           style={{
             padding: 10,
-            backgroundColor: '#d81536',
+            backgroundColor: '#d44f46',
             justifyContent: 'flex-end',
           }}
           onPress={() => {
