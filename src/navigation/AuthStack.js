@@ -10,7 +10,7 @@ const AuthStack = () => {
 
   return (
     <Stack.Navigator initialRouteName={'SignIn'}>
-        <Stack.Screen
+      <Stack.Screen
         name="SignIn"
         component={SignIn}
         options={{
@@ -18,20 +18,19 @@ const AuthStack = () => {
         }}
       />
       <Stack.Screen
-        name="Signup"
+        name="SignUp"
         component={SignUp}
         options={{
           headerShown: false,
         }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="OTP"
         component={OTP}
         options={{
           headerShown: false,
         }}
       />
-      
     </Stack.Navigator>
   );
 };
