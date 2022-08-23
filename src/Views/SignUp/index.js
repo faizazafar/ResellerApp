@@ -1,8 +1,8 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import TextInputClass from '../../components/TextInput';
+import TextInputClass from '../../Components/TextInput';
 import {useState} from 'react';
-import CheckboxCustom from '../../components/CheckboxCustom';
+// import CheckboxCustom from '../../components/CheckboxCustom';
 import {ScrollView} from 'react-native-gesture-handler';
 import * as Animatable from 'react-native-animatable';
 const SignUp = props => {
@@ -43,13 +43,11 @@ const SignUp = props => {
           />
         </View>
 
-        
-        
         <View
           style={{
             backgroundColor: '#fafafa',
             borderRadius: 20,
-            marginTop:10
+            marginTop: 10,
           }}>
           <TextInputClass
             image={require('../../assets/lock.png')}
@@ -190,30 +188,32 @@ const SignUp = props => {
               source={require('../../Images/google.png')}
             />
           </TouchableOpacity>
-
         </View>
 
-<View style={{flexDirection:"row" ,justifyContent:"center"}}>
-        <Text
-          style={{
-            fontSize: 12,
-            fontFamily: 'JuliusSansOne-Regular',
-            color: 'black',
-            textAlign: 'center',
-            marginTop:30,
-          }}>
-          Already have an account? 
-        </Text>
-        <TouchableOpacity
-        onPress={()=>props.navigation.navigate('SignIn')}>
-          <Text   style={{
-            fontSize: 12,
-            fontFamily: 'JuliusSansOne-Regular',
-            color: '#d44f46',
-            textAlign: 'center',
-            marginTop:30,
-          }}> {''}Sign In</Text>
-        </TouchableOpacity>
+        <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+          <Text
+            style={{
+              fontSize: 12,
+              fontFamily: 'JuliusSansOne-Regular',
+              color: 'black',
+              textAlign: 'center',
+              marginTop: 30,
+            }}>
+            Already have an account?
+          </Text>
+          <TouchableOpacity onPress={() => props.navigation.navigate('SignIn')}>
+            <Text
+              style={{
+                fontSize: 12,
+                fontFamily: 'JuliusSansOne-Regular',
+                color: '#d44f46',
+                textAlign: 'center',
+                marginTop: 30,
+              }}>
+              {' '}
+              {''}Sign In
+            </Text>
+          </TouchableOpacity>
         </View>
       </Animatable.View>
     </ScrollView>
@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
     // fontWeight: 'bold',
     fontSize: 20,
     marginTop: 10,
-    marginLeft:-5
+    marginLeft: -5,
   },
   text_footer: {
     color: '#05375a',
