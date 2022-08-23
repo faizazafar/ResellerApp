@@ -12,22 +12,22 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Tab = createBottomTabNavigator();
 
-const CustomeTabBarButton =({children ,onPress})=>{
+// const CustomeTabBarButton =({children ,onPress})=>{
   
-<TouchableOpacity
-style={{  justifyContent:"center" , alignItems:"center" , ...styles.shadow}}
-onPress={onPress}
+// <TouchableOpacity
+// style={{  justifyContent:"center" , alignItems:"center" , ...styles.shadow}}
+// onPress={onPress}
 
->
-  <View
-  style={{width:70, height:70 , borderRadius:35, backgroundColor:"pink"}}
-  >
-    {children}
+// >
+//   <View
+//   style={{width:70, height:70 , borderRadius:35, backgroundColor:"pink"}}
+//   >
+//     {children}
 
-  </View>
+//   </View>
 
-</TouchableOpacity> 
-}
+// </TouchableOpacity> 
+// }
 
 const Tabbar = () => {
   return (
@@ -44,6 +44,9 @@ const Tabbar = () => {
         backgroundColor:"#ffffff",
         elevation:0,
         height:80,
+        bottom:10,
+        left:10,
+        right:10,
         ...styles.shadow
       }
 
@@ -77,12 +80,17 @@ resizeMode="contain"  style={{
 <Tab.Screen name="Categories" component={Categories} 
 options={{
   tabBarIcon:({focused})=>(
+
+    <View style={{width:90 , height:90 , backgroundColor:"#d44f46" , borderRadius:50,
+     justifyContent:"center", alignItems:"center", marginBottom:50 , ...styles.shadow}}>
        <Image source={require('../../src/assets/categories.png')}
   resizeMode="contain"  style={{
-    width:50, height:50, tintColor: focused? '#d44f46': 'grey'
+    width:30, height:30, tintColor: 'white'
+    
   }}
   
   />
+  </View>
   ),
   // tabBarButton:(props)=>(
   // <CustomeTabBarButton {...props}/>
