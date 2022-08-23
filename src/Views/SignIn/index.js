@@ -7,9 +7,9 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import TextInputClass from '../../Components/TextInput';
+import TextInputClass from '../../components/TextInput';
 import {useState} from 'react';
-import CheckboxCustom from '../../Components/CheckboxCustom';
+import CheckboxCustom from '../../components/CheckboxCustom';
 import {ScrollView} from 'react-native-gesture-handler';
 import * as Animatable from 'react-native-animatable';
 
@@ -121,7 +121,7 @@ const SignIn = props => {
         </View>
 
         <TouchableOpacity
-        onPress={()=>props.navigation.navigate('Dashboard')}
+        onPress={()=>props.navigation.navigate('MainStack')}
           style={{
             padding: 18,
             backgroundColor: '#d44f46',

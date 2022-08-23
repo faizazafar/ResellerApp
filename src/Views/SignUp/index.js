@@ -1,6 +1,6 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import TextInputClass from '../../Components/TextInput';
+import TextInputClass from '../../components/TextInput';
 import {useState} from 'react';
 // import CheckboxCustom from '../../components/CheckboxCustom';
 import {ScrollView} from 'react-native-gesture-handler';

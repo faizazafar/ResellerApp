@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import Tabbar from '../../navigation/Tabbar'
 
 const Dashboard = () => {
   return (
-    <View>
-      <Text>Dashboard</Text>
-    </View>
+   <View>
+    <Text>agfy</Text>
+   </View>
   )
 }
 
