@@ -7,9 +7,9 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import TextInputClass from '../../components/TextInput';
+import TextInputClass from '../../Components/TextInput';
 import {useState} from 'react';
-import CheckboxCustom from '../../components/CheckboxCustom';
+import CheckboxCustom from '../../Components/CheckboxCustom';
 import {ScrollView} from 'react-native-gesture-handler';
 import * as Animatable from 'react-native-animatable';
 
@@ -149,7 +149,7 @@ const SignIn = props => {
         </Text>
 
         <TouchableOpacity
-        onPress={()=> props.navigation.navigate('SignUp')}
+          onPress={() => props.navigation.navigate('SignUp')}
           style={{
             padding: 18,
             borderRadius: 20,
@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
     // fontWeight: 'bold',
     fontSize: 20,
     marginTop: 10,
-    marginLeft:-5
+    marginLeft: -5,
   },
   text_footer: {
     color: '#05375a',
