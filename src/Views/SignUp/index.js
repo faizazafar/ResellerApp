@@ -10,7 +10,12 @@ const SignUp = props => {
   const [password, setPassword] = useState('');
   const [checked, setChecked] = useState(false);
   return (
-    <ScrollView contentContainerStyle={{flex: 1, backgroundColor: '#d44f46'}}>
+    <ScrollView
+      style={{}}
+      contentContainerStyle={{
+        backgroundColor: '#d44f46',
+        flexGrow: 1,
+      }}>
       <View style={styles.header}>
         <Text style={styles.text_header}>Welcome! </Text>
         <Text style={styles.text_subtite}> Create Your Account</Text>
@@ -105,7 +110,7 @@ const SignUp = props => {
             backgroundColor: '#fafafa',
             borderRadius: 20,
             // justifyContent: 'center',
-            // marginVertical: 10,
+            marginVertical: 10,
           }}>
           <TextInputClass
             image={require('../../assets/lock.png')}
@@ -223,23 +228,17 @@ const SignUp = props => {
 export default SignUp;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#d44f46',
-  },
   header: {
-    flex: 1,
-    justifyContent: 'flex-end',
     paddingHorizontal: 20,
     paddingBottom: 50,
+    marginTop: 30,
   },
   footer: {
-    flex: 5,
+    flex: 1,
     backgroundColor: '#fff',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     paddingHorizontal: 20,
-    paddingVertical: 30,
   },
   text_header: {
     color: '#fff',

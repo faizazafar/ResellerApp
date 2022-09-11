@@ -18,7 +18,12 @@ const SignIn = props => {
   const [password, setPassword] = useState('');
   const [checked, setChecked] = useState(false);
   return (
-    <ScrollView contentContainerStyle={{flex: 1, backgroundColor: '#d44f46'}}>
+    <ScrollView
+      style={{}}
+      contentContainerStyle={{
+        backgroundColor: '#d44f46',
+        flexGrow: 1,
+      }}>
       <View style={styles.header}>
         <Text style={styles.text_header}>Welcome! </Text>
         <Text style={styles.text_subtite}> Log In Into Your Account </Text>
