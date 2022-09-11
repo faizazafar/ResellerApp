@@ -6,78 +6,19 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
+  Share,
 } from 'react-native';
 import React, {Component} from 'react';
 import {Rating, AirbnbRating} from 'react-native-ratings';
 import Modal from 'react-native-modal';
-import CheckboxCustom from '../../Components/CheckboxCustom';
+import CheckboxCustom from '../../components/CheckboxCustom';
+var heading = 'Top Selling Product';
 
-const Product = [
-  {
-    image: require('../../Images/p1.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-  {
-    image: require('../../Images/p2.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-  {
-    image: require('../../Images/p3.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-  {
-    image: require('../../Images/p4.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-  {
-    image: require('../../Images/p5.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-  {
-    image: require('../../Images/p1.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-  {
-    image: require('../../Images/p2.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-  {
-    image: require('../../Images/p3.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-
-  {
-    image: require('../../Images/p4.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-  {
-    image: require('../../Images/p5.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-];
 export default class Products extends Component {
-  state = {visible: false, ischeck1: false, ischeck2: false};
+  state = {visible: false, ischeck1: false, ischeck2: false, selected: null};
+
   render() {
+    const {item} = this.props;
     return (
       <View style={{flex: 1, marginTop: 20}}>
         <View
@@ -94,10 +35,15 @@ export default class Products extends Component {
                 fontSize: 18,
                 fontWeight: '800',
               }}>
-              Top Selling Products
+              {heading}
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate('AllItem', {
+                Heading: heading,
+              });
+            }}>
             <Text
               style={{
                 color: '#d81536',
@@ -109,7 +55,7 @@ export default class Products extends Component {
           </TouchableOpacity>
         </View>
         <FlatList
-          data={Product}
+          data={item}
           contentContainerStyle={{
             flexWrap: 'wrap',
             flexDirection: 'row',
@@ -181,6 +127,7 @@ export default class Products extends Component {
                   <TouchableOpacity
                     onPress={() => {
                       this.setState({visible: !this.state.visible});
+                      this.setState({selected: item});
                     }}>
                     <Image
                       style={{
@@ -239,8 +186,9 @@ export default class Products extends Component {
                 style={{
                   flexDirection: 'row',
                   marginTop: 10,
-                  borderWidth: 0.5,
+                  borderWidth: 1,
                   padding: 10,
+                  borderWidth: 0.5,
                   borderRadius: 10,
                 }}>
                 <CheckboxCustom
@@ -256,6 +204,11 @@ export default class Products extends Component {
                 </Text>
               </View>
               <TouchableOpacity
+                onPress={() => {
+                  this.state.ischeck1
+                    ? this.onShare(this.state.selected)
+                    : null;
+                }}
                 style={{
                   padding: 20,
                   width: 150,

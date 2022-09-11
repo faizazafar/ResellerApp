@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Dashboard from '../Views/Dashboard';
@@ -6,9 +6,11 @@ import Categories from '../Views/Categories';
 import Orders from '../Views/Orders';
 import Shares from '../Views/Shares';
 import Profile from '../Views/Profile';
+import ViewAll from '../Views/Dashboard/VIewAll';
+
 import {Image} from 'react-native-animatable';
 import * as Animatable from 'react-native-animatable';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const Tab = createBottomTabNavigator();
 
@@ -28,35 +30,40 @@ const Tab = createBottomTabNavigator();
 
 // </TouchableOpacity>
 // }
+const Stack = createNativeStackNavigator();
 
+const DashboardStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name={'Dashboard'} component={Dashboard}></Stack.Screen>
+      <Stack.Screen name={'AllItem'} component={ViewAll}></Stack.Screen>
+    </Stack.Navigator>
+  );
+};
 const Tabbar = () => {
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarShowLabel: false,
         tabBarHideOnKeyboard: true,
-
-        // tabBarInactiveBackgroundColor:"yellow",
-        // tabBarIconStyle: { display: "none" },
         tabBarStyle: {
-          position: 'absolute',
           borderTopEndRadius: 30,
           borderTopLeftRadius: 30,
           backgroundColor: '#ffffff',
           elevation: 0,
           height: 70,
-          bottom: 10,
+          position: 'absolute',
+          bottom: 0,
           left: 10,
           right: 10,
-          ...styles.shadow,
         },
       }}>
       <Tab.Screen
         name="Home"
-        component={Dashboard}
+        component={DashboardStack}
         options={{
           tabBarShowLabel: false,
-          headerShown:false,
+          headerShown: false,
           tabBarIcon: ({focused}) => (
             <Animatable.View animation={'bounceIn'}>
               <Image

@@ -78,34 +78,6 @@ export default function OrderPromotion() {
           Har 10 order deliver{'\n'}honay pe Rs.1,000 ka{'\n'}bonus paen!
         </Text>
       </View>
-      <View
-        style={{
-          justifyContent: 'space-between',
-          marginTop: 20,
-          flexDirection: 'row',
-          paddingHorizontal: 2,
-        }}>
-        <TouchableOpacity>
-          <Text
-            style={{
-              color: 'black',
-              fontSize: 18,
-              fontWeight: '800',
-            }}>
-            Replica Mania
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text
-            style={{
-              color: '#d81536',
-              fontSize: 16,
-              fontWeight: '600',
-            }}>
-            View All
-          </Text>
-        </TouchableOpacity>
-      </View>
     </View>
   );
 }

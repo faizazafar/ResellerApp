@@ -126,13 +126,12 @@ const SignIn = props => {
         </View>
 
         <TouchableOpacity
-        onPress={()=>props.navigation.navigate('MainStack')}
+          onPress={() => props.navigation.navigate('MainStack')}
           style={{
             padding: 18,
             backgroundColor: '#d44f46',
             borderRadius: 20,
             marginTop: 40,
-          
           }}>
           <Text
             style={{

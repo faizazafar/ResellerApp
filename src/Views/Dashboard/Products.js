@@ -6,82 +6,94 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
+  Share,
 } from 'react-native';
 import React, {Component} from 'react';
 import {Rating, AirbnbRating} from 'react-native-ratings';
 import Modal from 'react-native-modal';
-import CheckboxCustom from '../../Components/CheckboxCustom';
-
-const Product = [
-  {
-    image: require('../../Images/p1.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-  {
-    image: require('../../Images/p2.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-  {
-    image: require('../../Images/p3.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-  {
-    image: require('../../Images/p4.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-  {
-    image: require('../../Images/p5.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-  {
-    image: require('../../Images/p1.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-  {
-    image: require('../../Images/p2.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-  {
-    image: require('../../Images/p3.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-
-  {
-    image: require('../../Images/p4.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-  {
-    image: require('../../Images/p5.png'),
-    price: 555,
-    pname: 'Special Nike Shoes',
-    rating: '0.0',
-  },
-];
+import CheckboxCustom from '../../components/CheckboxCustom';
+import RNFetchBlob from 'rn-fetch-blob';
+const fs = RNFetchBlob.fs;
+var heading = 'Replica Mania';
 export default class Products extends Component {
-  state = {visible: false, ischeck1: false, ischeck2: false};
+  state = {visible: false, ischeck1: false, ischeck2: false, selected: null};
+  onShare = async item => {
+    // return;
+    // return;
+    try {
+      let imagePath = null;
+      RNFetchBlob.config({
+        fileCache: true,
+      })
+        .fetch('get', String(item?.image))
+        // the image is now dowloaded to device's storage
+        .then(resp => {
+          // the image path you can use it directly with Image component
+          imagePath = resp.path();
+          // console.log('Image PATh', imagePath);
+          return resp.readFile('base64');
+        })
+        .then(base64Data => {
+          // here's base64 encoded image
+          console.log('BASE URIdafsdfds', base64Data);
+          // remove the file from storage
+          return fs.unlink(imagePath);
+        });
+      const result = await Share.share({
+        message:
+          'React Native | A framework for building native apps using React',
+      });
+
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
   render() {
+    const {item, navigation} = this.props;
     return (
       <View style={{flex: 1, marginTop: 20}}>
+        <View
+          style={{
+            justifyContent: 'space-between',
+            marginTop: 20,
+            flexDirection: 'row',
+            paddingHorizontal: 20,
+          }}>
+          <TouchableOpacity>
+            <Text
+              style={{
+                color: 'black',
+                fontSize: 18,
+                fontWeight: '800',
+              }}>
+              {heading}
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate('AllItem', {
+                Heading: heading,
+              });
+            }}>
+            <Text
+              style={{
+                color: '#d81536',
+                fontSize: 16,
+                fontWeight: '600',
+              }}>
+              View All
+            </Text>
+          </TouchableOpacity>
+        </View>
         <FlatList
-          data={Product}
+          data={item}
           contentContainerStyle={{
             flexWrap: 'wrap',
             flexDirection: 'row',
@@ -153,6 +165,7 @@ export default class Products extends Component {
                   <TouchableOpacity
                     onPress={() => {
                       this.setState({visible: !this.state.visible});
+                      this.setState({selected: item});
                     }}>
                     <Image
                       style={{
@@ -229,6 +242,11 @@ export default class Products extends Component {
                 </Text>
               </View>
               <TouchableOpacity
+                onPress={() => {
+                  this.state.ischeck1
+                    ? this.onShare(this.state.selected)
+                    : null;
+                }}
                 style={{
                   padding: 20,
                   width: 150,

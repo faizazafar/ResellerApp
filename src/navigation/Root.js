@@ -7,7 +7,7 @@ import MainStack from './MainStack';
 import Splash from '../Views/Splash';
 import Onboarding from '../Views/Onboarding';
 
-const Root = () => {
+const RootStack = () => {
   const Root = createNativeStackNavigator();
 
   return (
@@ -48,7 +48,7 @@ const Root = () => {
   );
 };
 
-export default Root;
+export default RootStack;
 
 const styles = StyleSheet.create({
   container: {

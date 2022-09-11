@@ -1,14 +1,48 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+// import {createNativeStackNavigator} from '@react-navigation/native-stack';
+// import React from 'react';
+// import {View, Text} from 'react-native';
+// export default function componentName() {
+//   const Stack = createNativeStackNavigator();
 
-const MainStack = () => {
-  const MainStack = createNativeStackNavigator();
+//   return (
+//     <Stack.Navigator initialRouteName={'Dashboard'}>
+//       <Stack.Screen
+//         name="Dashboard"
+//         component={Dashboard}
+//         options={{
+//           headerShown: false,
+//         }}
+//       />
+//     </Stack.Navigator>
+//   );
+// }
 
-  return (
-    <View>
-      <Text>MainStack</Text>
-    </View>
-  );
-};
+import {Text, View} from 'react-native';
+import Dashboard from '../Views/Dashboard/index';
+import React, {Component} from 'react';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Tabbar from './Tabbar';
 
-const styles = StyleSheet.create({});
+const Stack = createNativeStackNavigator();
+export default class MainStack extends Component {
+  render() {
+    return (
+      <Stack.Navigator initialRouteName={'Tabbar'}>
+        <Stack.Screen
+          name="Tabbar"
+          component={Tabbar}
+          options={{
+            headerShown: false,
+          }}
+        />
+        {/* <Stack.Screen
+          name="Dashboard"
+          component={Dashboard}
+          options={{
+            headerShown: false,
+          }}
+        /> */}
+      </Stack.Navigator>
+    );
+  }
+}
