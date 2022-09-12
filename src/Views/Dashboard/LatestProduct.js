@@ -19,11 +19,10 @@ export default class Products extends Component {
   render() {
     const {item} = this.props;
     return (
-      <View style={{flex: 1, marginTop: 20}}>
+      <View style={{flex: 1}}>
         <View
           style={{
             justifyContent: 'space-between',
-            marginTop: 20,
             flexDirection: 'row',
             paddingHorizontal: 20,
           }}>
@@ -54,7 +53,9 @@ export default class Products extends Component {
           </TouchableOpacity>
         </View>
         <FlatList
-          data={item}
+          data={item.slice(2,4)}
+          horizontal
+        scrollEnabled={false}
           contentContainerStyle={{
             flexWrap: 'wrap',
             flexDirection: 'row',
@@ -68,7 +69,7 @@ export default class Products extends Component {
               <View
                 style={{
                   //   elevation: 4,
-                  margin: 10,
+                  margin: 5,
                   borderRadius: 3,
                   borderWidth: 0.1,
                 }}>

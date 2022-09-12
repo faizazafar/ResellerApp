@@ -20,11 +20,11 @@ export default class Products extends Component {
   render() {
     const {item} = this.props;
     return (
-      <View style={{flex: 1, marginTop: 20}}>
+      <View style={{flex: 1}}>
         <View
           style={{
             justifyContent: 'space-between',
-            marginTop: 20,
+            // marginTop: ,
             flexDirection: 'row',
             paddingHorizontal: 20,
           }}>
@@ -55,7 +55,9 @@ export default class Products extends Component {
           </TouchableOpacity>
         </View>
         <FlatList
-          data={item}
+        horizontal
+        scrollEnabled={false}
+          data={item.slice(4,6)}
           contentContainerStyle={{
             flexWrap: 'wrap',
             flexDirection: 'row',
@@ -69,11 +71,18 @@ export default class Products extends Component {
               <View
                 style={{
                   //   elevation: 4,
-                  margin: 10,
+                  margin: 5,
                   borderRadius: 3,
                   borderWidth: 0.1,
                 }}>
-                <TouchableOpacity style={{}}>
+                <TouchableOpacity 
+                   onPress={() => {
+                    console.log("jend",item?.item?.id)
+                    this.props.navigation.navigate('ProductDetails', {
+                       productId: item?.item?.id
+                    });
+                  }}
+                style={{}}>
                   <Image
                     style={{
                       width: 170,

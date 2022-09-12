@@ -11,6 +11,7 @@ import ViewAll from '../Views/Dashboard/VIewAll';
 import {Image} from 'react-native-animatable';
 import * as Animatable from 'react-native-animatable';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import ProductDetails from '../Views/ProductDetails';
 
 const Tab = createBottomTabNavigator();
 
@@ -37,6 +38,8 @@ const DashboardStack = () => {
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name={'Dashboard'} component={Dashboard}></Stack.Screen>
       <Stack.Screen name={'AllItem'} component={ViewAll}></Stack.Screen>
+      <Stack.Screen name={'ProductDetails'} component={ProductDetails}></Stack.Screen>
+
     </Stack.Navigator>
   );
 };

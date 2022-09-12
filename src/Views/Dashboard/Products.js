@@ -81,7 +81,10 @@ export default class Products extends Component {
               this.props.navigation.navigate('AllItem', {
                 Heading: heading,
               });
-            }}>
+            }}
+            
+            
+            >
             <Text
               style={{
                 color: '#d81536',
@@ -93,7 +96,9 @@ export default class Products extends Component {
           </TouchableOpacity>
         </View>
         <FlatList
-          data={item}
+        horizontal
+        scrollEnabled={false}
+          data={item.slice(0,2)}
           contentContainerStyle={{
             flexWrap: 'wrap',
             flexDirection: 'row',
@@ -106,17 +111,24 @@ export default class Products extends Component {
             return (
               <View
                 style={{
-                  //   elevation: 4,
-                  margin: 10,
+                    // elevation: 3,
+                  margin: 5,
                   borderRadius: 3,
                   borderWidth: 0.1,
+                  
                 }}>
-                <TouchableOpacity style={{}}>
+                <TouchableOpacity      onPress={() => {
+              this.props.navigation.navigate('AllItem', {
+                Heading: heading,
+              });
+            }}
+             style={{}}>
                   <Image
                     style={{
                       width: 170,
                       height: 150,
                       resizeMode: 'contain',
+                      
                     }}
                     source={item?.item?.image}
                   />
@@ -159,6 +171,7 @@ export default class Products extends Component {
                     ratingBackgroundColor="white"
                     imageSize={10}
                     readonly
+                    startingValue={4}
                     // onFinishRating={this.ratingCompleted}
                     style={{paddingVertical: 10, marginLeft: 10}}
                   />

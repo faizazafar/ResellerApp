@@ -12,7 +12,8 @@ const Search = () => {
     style={styles.container}
   >
     <View style={{ backgroundColor:'#fff', borderRadius:10 ,
-    paddingHorizontal:'3%' , marginVertical:10 ,
+    paddingHorizontal:'5%' , marginVertical:10 ,
+    marginHorizontal:10,
     shadowOpacity: 0.2,
     shadowRadius: 4,
     shadowColor: 'black',
