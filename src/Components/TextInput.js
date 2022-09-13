@@ -22,7 +22,7 @@ export default class TextInputClass extends Component {
           />
           <TextInput
             placeholder={placeholder}
-            placeholderTextColor={'#9e9e9e'}
+            placeholderTextColor={'black'}
             onChangeText={onChange}
             style={style}
             secureTextEntry={pass}

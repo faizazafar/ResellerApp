@@ -15,14 +15,16 @@ import {getProduct} from '../../components/Products';
 import {Rating} from 'react-native-ratings';
 import Modal from 'react-native-modal';
 import DropDownPicker from 'react-native-dropdown-picker';
+import TextInputClass from '../../components/TextInput';
 
 const ProductDetails = ({route}) => {
   const {productId} = route.params;
   const [open, setOpen] = useState(false);
+  const [profitValue, setProfitValue] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
     {label: 'Apple', value: 'apple'},
-    {label: 'Banana', value: 'banana'}
+    {label: 'Banana', value: 'banana'},
   ]);
   const [product, setProduct] = useState({});
   const [showModal, setShowModal] = useState(false);
@@ -196,6 +198,12 @@ const ProductDetails = ({route}) => {
             flexDirection: 'row',
             justifyContent: 'space-evenly',
             flex: 1,
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right:0,
+            // width: '100%',
+            // marginTop:50
           }}>
           <TouchableOpacity
             onPress={() => setShowModal(true)}
@@ -255,31 +263,82 @@ const ProductDetails = ({route}) => {
               padding: 20,
               overflow: 'hidden',
             }}>
-              <View style={{flex: 1}}>
-            <View
-              style={{
-                justifyContent: 'space-between',
-                flexDirection: 'row',
-                marginBottom:10
+            <View style={{flex: 1}}>
+              <View
+                style={{
+                  justifyContent: 'space-between',
+                  flexDirection: 'row',
+                  marginBottom: 10,
+                  
+                }}>
+                <Text>Size</Text>
+                <Text style={{ marginRight:50}}>Quantity</Text>
+              </View>
+              <View style={{flexDirection:"row", justifyContent:"space-between",
+            alignItems:"center" }}>
+              <DropDownPicker
+                containerStyle={{width: '50%' , opacity:0.5,
+                
+              }            
+            }
+                // style={{ width:'50%'}}
+                open={open}
+                value={value}
+                items={items}
+                setOpen={setOpen}
+                setValue={setValue}
+                setItems={setItems}
+              />
+
+              <TouchableOpacity style={{ borderRadius:4  ,  padding:12, borderWidth:1,
+              backgroundColor:"#dc3439"
               }}>
-              <Text>Size</Text>
-              <Text style={{}}>Quantity</Text>
-             
+                <Image tintColor={'white'} source={require('../../Images/minus.png')} style={{ width:15, height:15}}/>
+
+              </TouchableOpacity>
+              <Text>1</Text>
+
+              <TouchableOpacity  style={{ borderRadius:4  ,  padding:12, borderWidth:1,
+                            backgroundColor:"#dc3439"
+
+              }}>
+                <Image tintColor={'white'}  source={require('../../Images/plus.png')} style={{ width:15, height:15}}/>
+
+              </TouchableOpacity>
+              </View>
+
+              <View
+          style={{
+            // backgroundColor: '#fafafa',
+            borderWidth:1,
+            borderRadius: 10,
+            opacity:0.5,
+            // justifyContent: 'center',
+            marginVertical: 10,
+          }}>
+          <TextInputClass
+            image={require('../../Images/profit.png')}
+            imageStyle={{
+              width: 20,
+              height: 20,
+              justifyContent: 'center',
+              alignSelf: 'center',
+              tintColor: 'black',
+            }}
+            pass={false}
+            style={{
+              padding: 2,
+              paddingHorizontal: 10,
+              // fontFamily: 'JuliusSansOne-Regular',
+              // backgroundColor:"pink"
+            }}
+            placeholder={'Enter Profit'}
+            onChange={t => {
+              setProfitValue(t);
+            }}
+          />
+        </View>
             </View>
-            <DropDownPicker
-            
-            containerStyle={ {width:'50%'}}
-            activityIndicatorColor={"blue"}
-            // style={{ width:'50%'}}
-      open={open}
-      value={value}
-      items={items}
-      setOpen={setOpen}
-      setValue={setValue}
-      setItems={setItems}
-    />
-    </View>
-    
           </View>
         </Modal>
       ) : null}
