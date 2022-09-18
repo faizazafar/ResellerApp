@@ -58,7 +58,11 @@ export default class Products extends Component {
   render() {
     const {item, navigation} = this.props;
     return (
-      <View style={{flex: 1, marginTop: 20}}>
+      <View
+        style={{
+          flex: 1,
+          marginTop: 20,
+        }}>
         <View
           style={{
             justifyContent: 'space-between',
@@ -81,10 +85,7 @@ export default class Products extends Component {
               this.props.navigation.navigate('AllItem', {
                 Heading: heading,
               });
-            }}
-            
-            
-            >
+            }}>
             <Text
               style={{
                 color: '#d81536',
@@ -96,39 +97,37 @@ export default class Products extends Component {
           </TouchableOpacity>
         </View>
         <FlatList
-        horizontal
-        scrollEnabled={false}
-          data={item.slice(0,2)}
+          horizontal
+          scrollEnabled={false}
+          data={item.slice(0, 2)}
           contentContainerStyle={{
             flexWrap: 'wrap',
             flexDirection: 'row',
             justifyContent: 'center',
-            alignItems: 'center',
             paddingBottom: 30,
+            marginTop: 10,
           }}
-          style={{flex: 1}}
+          style={{flex: 1, alignSelf: 'center'}}
           renderItem={(item, index) => {
             return (
               <View
                 style={{
-                    // elevation: 3,
+                  // elevation: 3,
                   margin: 5,
                   borderRadius: 3,
                   borderWidth: 0.1,
-                  
                 }}>
-                <TouchableOpacity      onPress={() => {
-              this.props.navigation.navigate('AllItem', {
-                Heading: heading,
-              });
-            }}
-             style={{}}>
+                <TouchableOpacity
+                  onPress={() => {
+                    // this.props.navigation.navigate('ProductDetails',{
+                    // });
+                  }}
+                  style={{}}>
                   <Image
                     style={{
                       width: 170,
                       height: 150,
                       resizeMode: 'contain',
-                      
                     }}
                     source={item?.item?.image}
                   />

@@ -70,6 +70,7 @@ const Product = [
     pname: 'Special Nike Shoes',
     subtitle: "Women 1 pc lawn dress",
 
+
     rating: '3',
     deliveryPrice: 99,
   },
@@ -305,9 +306,9 @@ const Categories = () => {
           }}
         />
     </View>
-  )
-}
+  );
+};
 
-export default Categories
+export default Categories;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

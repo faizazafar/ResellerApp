@@ -90,6 +90,7 @@ const ProductDetails = ({route}) => {
     );
   };
 
+  console.log('DETAILS', product?.productImageList, productId);
   return (
     <ScrollView
       contentContainerStyle={{
@@ -347,13 +348,13 @@ const ProductDetails = ({route}) => {
                     style={{width: 15, height: 15}}
                   />
                 </TouchableOpacity>
-                <Text>{counter}</Text>
+                <Text>1</Text>
 
                 <TouchableOpacity
-                  onPress={() => setCounter(counter++)}
                   style={{
                     borderRadius: 4,
                     padding: 12,
+                    borderWidth: 1,
                     backgroundColor: '#dc3439',
                   }}>
                   <Image
@@ -372,7 +373,6 @@ const ProductDetails = ({route}) => {
                   opacity: 0.5,
                   // justifyContent: 'center',
                   marginVertical: 10,
-                  // width:'100%'
                 }}>
                 <TextInputClass
                   image={require('../../Images/profit.png')}
