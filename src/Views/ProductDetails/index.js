@@ -20,21 +20,49 @@ import TextInputClass from '../../components/TextInput';
 const ProductDetails = ({route}) => {
   const {productId} = route.params;
   const [open, setOpen] = useState(false);
-  const [profitValue, setProfitValue] = useState(false);
+  const [profitValue, setProfitValue] = useState(0);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
-    {label: 'Apple', value: 'apple'},
-    {label: 'Banana', value: 'banana'},
+    {label: 'Small', value: 'apple'},
+    {label: 'Medium', value: 'banana'},
+    {label: 'Large', value: 'banana'},
+    {label: 'Extra large ', value: 'banana'},
   ]);
+  let [counter, setCounter] = useState(0);
+
+  const [total, setTotal] = useState(0);
   const [product, setProduct] = useState({});
   const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    setTotal();
+  }, [profitValue]);
+
+  const sheetData = [
+    {
+      title: 'Wholesale Price',
+      price: 550,
+    },
+
+    {
+      title: 'Your total profit',
+      price: profitValue,
+    },
+    {
+      title: 'Delivery charges',
+      price: 90,
+    },
+    {
+      title: 'Total',
+      price: 640,
+    },
+  ];
 
   useEffect(() => {
     setProduct(getProduct(productId));
   }, []);
 
-  console.log(productId);
-  const star_unfill = '../../assets/star-unfill.png';
+  console.log('id', productId);
 
   const width = Dimensions.get('window').width;
   const scrollX = new Animated.Value(0);
@@ -67,7 +95,7 @@ const ProductDetails = ({route}) => {
       contentContainerStyle={{
         flexGrow: 1,
         backgroundColor: 'white',
-        paddingBottom: 90,
+        paddingBottom: 120,
       }}>
       <Header />
 
@@ -130,11 +158,16 @@ const ProductDetails = ({route}) => {
           </TouchableOpacity>
           {/* <Text style={styles.name}>{product.productName}</Text> */}
         </View>
-        <Text style={styles.name}>{product.productName}</Text>
-        <Text style={styles.name}>{product.subTitle}</Text>
+        <Text style={styles.name}>{product.pname}</Text>
+        <Text style={styles.subTitle}>{product.subTitle}</Text>
 
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          <Text>Reviews</Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            marginVertical: 20,
+          }}>
+          <Text style={{fontWeight: '800', fontSize: 15}}>Reviews</Text>
           <Rating
             starContainerStyle={{justifyContent: 'space-between'}}
             ratingCount={5}
@@ -143,55 +176,63 @@ const ProductDetails = ({route}) => {
           />
         </View>
 
-        <View style={{flexDirection: 'row', width: '100%'}}>
+        <View style={{flexDirection: 'row', width: '100%', marginVertical: 5}}>
           {/* <View style={{justifyContent:""}}> */}
           <TouchableOpacity style={{marginRight: 10}}>
             <Image
               source={require('../../assets/copy2.png')}
-              tintColor={'black'}
+              tintColor={'#d44f46'}
               style={{width: 20, height: 20}}
             />
           </TouchableOpacity>
-          <Text>jsbxj</Text>
+          <Text style={{fontWeight: '800'}}>Copy Product Details</Text>
 
           {/* </View> */}
 
-          <TouchableOpacity>
-            <Image
-              source={require('../../assets/down2.png')}
-              tintColor={'black'}
-              style={{width: 20, height: 20, left: 200}}
-            />
-          </TouchableOpacity>
+          <View style={{left: 80, flexDirection: 'row'}}>
+            <TouchableOpacity>
+              <Image
+                source={require('../../assets/down2.png')}
+                tintColor={'#d44f46'}
+                style={{width: 20, height: 20}}
+              />
+            </TouchableOpacity>
 
-          <Text style={{left: 210}}>jsbxj</Text>
+            <Text style={{fontWeight: '800'}}>Download</Text>
+          </View>
         </View>
 
         <View style={styles.verticleLine}></View>
 
-        <Text>Delivery</Text>
+        <View style={{marginVertical: 10}}>
+          <Text style={{fontWeight: '800'}}>Delivery</Text>
 
-        <Text>Product will be delivered in 2 -3 days</Text>
-
-        <View style={styles.verticleLineTwo}></View>
-
-        <Text>Details</Text>
-
-        {product?.details &&
-          product?.details.map(e => {
-            return <Text>{e}</Text>;
-          })}
-        <Text>{`${product.size}\n`}</Text>
-
-        <Text>{product.note}</Text>
-
-        <Text>{`Product Code : ${product.productCode}`}</Text>
+          <Text>Product will be delivered in 2 -3 days</Text>
+        </View>
 
         <View style={styles.verticleLineTwo}></View>
-        <Text>Refund Policy</Text>
+
+        <View style={{marginVertical: 10}}>
+          <Text style={{fontWeight: '800'}}>Details</Text>
+
+          {product?.details &&
+            product?.details.map(e => {
+              return <Text>{e}</Text>;
+            })}
+          <Text>{`${product.size}\n`}</Text>
+
+          <Text>{product.note}</Text>
+
+          <Text>{`Product Code : ${product.productCode}`}</Text>
+        </View>
+
+        <View style={styles.verticleLineTwo}></View>
+        <Text style={{fontWeight: '800', marginVertical: 10, marginBottom: 30}}>
+          Refund Policy
+        </Text>
 
         <Text>7 Days Return</Text>
-        <Text>Warranty not available</Text>
+        <Text style={{marginBottom: 30}}>Warranty not available</Text>
 
         <View
           style={{
@@ -201,9 +242,9 @@ const ProductDetails = ({route}) => {
             position: 'absolute',
             bottom: 0,
             left: 0,
-            right:0,
+            right: 0,
             // width: '100%',
-            // marginTop:50
+            marginTop: 130,
           }}>
           <TouchableOpacity
             onPress={() => setShowModal(true)}
@@ -269,75 +310,129 @@ const ProductDetails = ({route}) => {
                   justifyContent: 'space-between',
                   flexDirection: 'row',
                   marginBottom: 10,
-                  
                 }}>
                 <Text>Size</Text>
-                <Text style={{ marginRight:50}}>Quantity</Text>
+                <Text style={{marginRight: 50}}>Quantity</Text>
               </View>
-              <View style={{flexDirection:"row", justifyContent:"space-between",
-            alignItems:"center" }}>
-              <DropDownPicker
-                containerStyle={{width: '50%' , opacity:0.5,
-                
-              }            
-            }
-                // style={{ width:'50%'}}
-                open={open}
-                value={value}
-                items={items}
-                setOpen={setOpen}
-                setValue={setValue}
-                setItems={setItems}
-              />
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  zIndex: 20,
+                  alignItems: 'center',
+                }}>
+                <DropDownPicker
+                  containerStyle={{width: '50%'}}
+                  textColor="#fff"
+                  style={{backgroundColor: '#fff', borderWidth: 0.5}}
+                  // style={{ width:'50%'}}
+                  open={open}
+                  value={value}
+                  items={items}
+                  setOpen={setOpen}
+                  setValue={setValue}
+                  setItems={setItems}
+                />
 
-              <TouchableOpacity style={{ borderRadius:4  ,  padding:12, borderWidth:1,
-              backgroundColor:"#dc3439"
-              }}>
-                <Image tintColor={'white'} source={require('../../Images/minus.png')} style={{ width:15, height:15}}/>
+                <TouchableOpacity
+                  onPress={() => setCounter(counter--)}
+                  style={{
+                    borderRadius: 4,
+                    padding: 12,
+                    backgroundColor: '#dc3439',
+                  }}>
+                  <Image
+                    tintColor={'white'}
+                    source={require('../../Images/minus.png')}
+                    style={{width: 15, height: 15}}
+                  />
+                </TouchableOpacity>
+                <Text>{counter}</Text>
 
-              </TouchableOpacity>
-              <Text>1</Text>
-
-              <TouchableOpacity  style={{ borderRadius:4  ,  padding:12, borderWidth:1,
-                            backgroundColor:"#dc3439"
-
-              }}>
-                <Image tintColor={'white'}  source={require('../../Images/plus.png')} style={{ width:15, height:15}}/>
-
-              </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => setCounter(counter++)}
+                  style={{
+                    borderRadius: 4,
+                    padding: 12,
+                    backgroundColor: '#dc3439',
+                  }}>
+                  <Image
+                    tintColor={'white'}
+                    source={require('../../Images/plus.png')}
+                    style={{width: 15, height: 15}}
+                  />
+                </TouchableOpacity>
               </View>
 
               <View
-          style={{
-            // backgroundColor: '#fafafa',
-            borderWidth:1,
-            borderRadius: 10,
-            opacity:0.5,
-            // justifyContent: 'center',
-            marginVertical: 10,
-          }}>
-          <TextInputClass
-            image={require('../../Images/profit.png')}
-            imageStyle={{
-              width: 20,
-              height: 20,
-              justifyContent: 'center',
-              alignSelf: 'center',
-              tintColor: 'black',
-            }}
-            pass={false}
-            style={{
-              padding: 2,
-              paddingHorizontal: 10,
-              // fontFamily: 'JuliusSansOne-Regular',
-              // backgroundColor:"pink"
-            }}
-            placeholder={'Enter Profit'}
-            onChange={t => {
-              setProfitValue(t);
-            }}
-          />
-        </View>
+                style={{
+                  // backgroundColor: '#fafafa',
+                  borderWidth: 1,
+                  borderRadius: 10,
+                  opacity: 0.5,
+                  // justifyContent: 'center',
+                  marginVertical: 10,
+                  // width:'100%'
+                }}>
+                <TextInputClass
+                  image={require('../../Images/profit.png')}
+                  imageStyle={{
+                    width: 20,
+                    height: 20,
+                    justifyContent: 'center',
+                    alignSelf: 'center',
+                    tintColor: 'black',
+                  }}
+                  pass={false}
+                  style={{
+                    padding: 2,
+                    paddingHorizontal: 10,
+                    // fontFamily: 'JuliusSansOne-Regular',
+                    // backgroundColor:"pink"
+                  }}
+                  placeholder={'Enter Profit'}
+                  onChange={t => {
+                    setProfitValue(t);
+                  }}
+                />
+              </View>
+
+              {sheetData?.map(item => {
+                return (
+                  <View
+                    style={{
+                      justifyContent: 'space-between',
+                      flexDirection: 'row',
+                      marginVertical: 5,
+                    }}>
+                    <Text>{item?.title}</Text>
+                    <Text>{`Rs ${item?.price}`}</Text>
+                  </View>
+                );
+              })}
+
+              <TouchableOpacity
+                onPress={() => ''}
+                style={{
+                  padding: 10,
+                  backgroundColor: '#d44f46',
+                  borderRadius: 5,
+                  marginTop: 20,
+                  width: '50%',
+                  justifyContent: 'center',
+                  alignContent: 'center',
+                  alignSelf: 'center',
+                }}>
+                <Text
+                  style={{
+                    fontSize: 15,
+                    fontFamily: 'JuliusSansOne-Regular',
+                    color: 'white',
+                    textAlign: 'center',
+                  }}>
+                  Order Now
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
         </Modal>
@@ -370,7 +465,12 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   name: {
-    fontSize: 22,
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginVertical: 2,
+  },
+  subTitle: {
+    fontSize: 15,
     fontWeight: 'bold',
   },
   price: {

@@ -109,7 +109,7 @@ export default class Products extends Component {
                 fontSize: 18,
                 fontWeight: '800',
               }}>
-              {this.props.route.params.Heading}
+              {/* {this.props.route.params.Heading} */}
             </Text>
           </TouchableOpacity>
         </View>

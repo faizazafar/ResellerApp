@@ -12,6 +12,7 @@ import {Image} from 'react-native-animatable';
 import * as Animatable from 'react-native-animatable';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ProductDetails from '../Views/ProductDetails';
+import CustomDrawer from './CustomDrawer';
 
 const Tab = createBottomTabNavigator();
 
@@ -39,6 +40,7 @@ const DashboardStack = () => {
       <Stack.Screen name={'Dashboard'} component={Dashboard}></Stack.Screen>
       <Stack.Screen name={'AllItem'} component={ViewAll}></Stack.Screen>
       <Stack.Screen name={'ProductDetails'} component={ProductDetails}></Stack.Screen>
+
 
     </Stack.Navigator>
   );
@@ -119,8 +121,15 @@ const Tabbar = () => {
       />
 
       <Tab.Screen
+      // navigation.toggleDrawer();
         name="Categories"
-        component={Categories}
+        component={CustomDrawer}
+        listeners={({ navigation }) => ({
+          tabPress: e => {
+            navigation.dispatch(navigation.toggleDrawer())
+    
+            e.preventDefault()
+          }})}
         options={{
           tabBarIcon: ({focused}) => (
             <View
@@ -143,6 +152,16 @@ const Tabbar = () => {
                   tintColor: 'white',
                 }}
               />
+               <Text
+                style={{
+                  color: focused ? '#d44f46' : 'grey',
+                  fontSize: 10,
+                  textAlign: 'center',
+                  color:"white",
+                  marginTop:2
+                }}>
+                Categories
+              </Text>
             </View>
           ),
           // tabBarButton:(props)=>(

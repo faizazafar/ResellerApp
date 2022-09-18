@@ -1,4 +1,4 @@
-import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {Image, ScrollView, StyleSheet, Text,  TouchableOpacity, View ,} from 'react-native';
 import React from 'react';
 import Header from '../../components/Header';
 import TextInputClass from '../../components/TextInput';
@@ -9,9 +9,13 @@ import Products from './Products';
 import LatestProduct from './LatestProduct';
 import FeatureProduct from './FeatureProducts';
 import TopSellingProduct from './TopSellingProduct';
-import Search from '../../components/Search'
+import Search from '../../components/Search';
 import {useNavigation} from '@react-navigation/native';
 import Product from '../../components/Products';
+import ViewAll from './VIewAll';
+import DropDownPicker from 'react-native-dropdown-picker';
+import { useState } from 'react';
+import Categories from '../Categories';
 // const Product = [
 //   {
 //     id:1,
@@ -99,8 +103,18 @@ import Product from '../../components/Products';
 //   },
 // ];
 
-
 export default function index() {
+  const [open, setOpen] = useState(false);
+  const [profitValue, setProfitValue] = useState(0);
+  const [value, setValue] = useState(null);
+
+  const [items, setItems] = useState([
+    {label: 'Latest', value: 'Latest'},
+    {label: 'Featured', value: 'Featured'},
+    {label: 'Price low to high', value: 'Price low to high'},
+    {label: 'Price High to ow', value: 'Price High to low'},
+
+  ]);
   const nav = useNavigation();
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
@@ -117,7 +131,7 @@ export default function index() {
         style={{
           flex: 1,
         }}>
-          <Search/>
+        <Search />
         {/* <TextInputClass
           style={{
             flex: 1,
@@ -134,10 +148,50 @@ export default function index() {
         /> */}
         <Ticker />
         <OrderPromotion />
-        <Products navigation={nav} item={Product}/>
+        <Products navigation={nav} item={Product} />
         <LatestProduct navigation={nav} item={Product} />
         <FeatureProduct navigation={nav} item={Product} />
-        <TopSellingProduct navigation={nav} item={Product} />
+        <Text
+        style={{
+                color: 'black',
+                fontSize: 20,
+                fontWeight: '900',
+                paddingHorizontal:20,
+                marginBottom:20
+              }}>
+              {"Top Catalogs"}
+            </Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            paddingHorizontal:10,
+          }}>
+          <DropDownPicker
+            containerStyle={{width: '100%'}}
+            itemTextStyle={{backgroundColor:"blue",textColor:"white"}}
+          textColor="#fff"
+            style={{ backgroundColor: '#fff',
+            borderWidth: 0,
+            elevation:4
+            
+            
+          }}
+            // style={{ width:'50%'}}
+            open={open}
+            value={value}
+            items={items}
+            setOpen={setOpen}
+            setValue={setValue}
+            setItems={setItems}
+          />
+
+    
+
+       
+        </View>
+       <Categories/>
       </ScrollView>
     </View>
   );
