@@ -55,9 +55,9 @@ export default class Products extends Component {
           </TouchableOpacity>
         </View>
         <FlatList
-        horizontal
-        scrollEnabled={false}
-          data={item.slice(4,6)}
+          horizontal
+          scrollEnabled={false}
+          data={item.slice(4, 6)}
           contentContainerStyle={{
             flexWrap: 'wrap',
             flexDirection: 'row',
@@ -65,7 +65,7 @@ export default class Products extends Component {
             alignItems: 'center',
             paddingBottom: 30,
           }}
-          style={{flex: 1}}
+          style={{flex: 1, alignSelf: 'center'}}
           renderItem={(item, index) => {
             return (
               <View
@@ -75,14 +75,14 @@ export default class Products extends Component {
                   borderRadius: 3,
                   borderWidth: 0.1,
                 }}>
-                <TouchableOpacity 
-                   onPress={() => {
-                    console.log("jend",item?.item?.id)
+                <TouchableOpacity
+                  onPress={() => {
+                    console.log('jend', item?.item?.id);
                     this.props.navigation.navigate('ProductDetails', {
-                       productId: item?.item?.id
+                      productId: item?.item?.id,
                     });
                   }}
-                style={{}}>
+                  style={{}}>
                   <Image
                     style={{
                       width: 170,

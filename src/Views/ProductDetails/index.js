@@ -62,6 +62,7 @@ const ProductDetails = ({route}) => {
     );
   };
 
+  console.log('DETAILS', product?.productImageList, productId);
   return (
     <ScrollView
       contentContainerStyle={{
@@ -201,7 +202,7 @@ const ProductDetails = ({route}) => {
             position: 'absolute',
             bottom: 0,
             left: 0,
-            right:0,
+            right: 0,
             // width: '100%',
             // marginTop:50
           }}>
@@ -269,75 +270,88 @@ const ProductDetails = ({route}) => {
                   justifyContent: 'space-between',
                   flexDirection: 'row',
                   marginBottom: 10,
-                  
                 }}>
                 <Text>Size</Text>
-                <Text style={{ marginRight:50}}>Quantity</Text>
+                <Text style={{marginRight: 50}}>Quantity</Text>
               </View>
-              <View style={{flexDirection:"row", justifyContent:"space-between",
-            alignItems:"center" }}>
-              <DropDownPicker
-                containerStyle={{width: '50%' , opacity:0.5,
-                
-              }            
-            }
-                // style={{ width:'50%'}}
-                open={open}
-                value={value}
-                items={items}
-                setOpen={setOpen}
-                setValue={setValue}
-                setItems={setItems}
-              />
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}>
+                <DropDownPicker
+                  containerStyle={{width: '50%', opacity: 0.5}}
+                  // style={{ width:'50%'}}
+                  open={open}
+                  value={value}
+                  items={items}
+                  setOpen={setOpen}
+                  setValue={setValue}
+                  setItems={setItems}
+                />
 
-              <TouchableOpacity style={{ borderRadius:4  ,  padding:12, borderWidth:1,
-              backgroundColor:"#dc3439"
-              }}>
-                <Image tintColor={'white'} source={require('../../Images/minus.png')} style={{ width:15, height:15}}/>
+                <TouchableOpacity
+                  style={{
+                    borderRadius: 4,
+                    padding: 12,
+                    borderWidth: 1,
+                    backgroundColor: '#dc3439',
+                  }}>
+                  <Image
+                    tintColor={'white'}
+                    source={require('../../Images/minus.png')}
+                    style={{width: 15, height: 15}}
+                  />
+                </TouchableOpacity>
+                <Text>1</Text>
 
-              </TouchableOpacity>
-              <Text>1</Text>
-
-              <TouchableOpacity  style={{ borderRadius:4  ,  padding:12, borderWidth:1,
-                            backgroundColor:"#dc3439"
-
-              }}>
-                <Image tintColor={'white'}  source={require('../../Images/plus.png')} style={{ width:15, height:15}}/>
-
-              </TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    borderRadius: 4,
+                    padding: 12,
+                    borderWidth: 1,
+                    backgroundColor: '#dc3439',
+                  }}>
+                  <Image
+                    tintColor={'white'}
+                    source={require('../../Images/plus.png')}
+                    style={{width: 15, height: 15}}
+                  />
+                </TouchableOpacity>
               </View>
 
               <View
-          style={{
-            // backgroundColor: '#fafafa',
-            borderWidth:1,
-            borderRadius: 10,
-            opacity:0.5,
-            // justifyContent: 'center',
-            marginVertical: 10,
-          }}>
-          <TextInputClass
-            image={require('../../Images/profit.png')}
-            imageStyle={{
-              width: 20,
-              height: 20,
-              justifyContent: 'center',
-              alignSelf: 'center',
-              tintColor: 'black',
-            }}
-            pass={false}
-            style={{
-              padding: 2,
-              paddingHorizontal: 10,
-              // fontFamily: 'JuliusSansOne-Regular',
-              // backgroundColor:"pink"
-            }}
-            placeholder={'Enter Profit'}
-            onChange={t => {
-              setProfitValue(t);
-            }}
-          />
-        </View>
+                style={{
+                  // backgroundColor: '#fafafa',
+                  borderWidth: 1,
+                  borderRadius: 10,
+                  opacity: 0.5,
+                  // justifyContent: 'center',
+                  marginVertical: 10,
+                }}>
+                <TextInputClass
+                  image={require('../../Images/profit.png')}
+                  imageStyle={{
+                    width: 20,
+                    height: 20,
+                    justifyContent: 'center',
+                    alignSelf: 'center',
+                    tintColor: 'black',
+                  }}
+                  pass={false}
+                  style={{
+                    padding: 2,
+                    paddingHorizontal: 10,
+                    // fontFamily: 'JuliusSansOne-Regular',
+                    // backgroundColor:"pink"
+                  }}
+                  placeholder={'Enter Profit'}
+                  onChange={t => {
+                    setProfitValue(t);
+                  }}
+                />
+              </View>
             </View>
           </View>
         </Modal>

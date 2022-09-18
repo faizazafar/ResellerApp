@@ -9,7 +9,7 @@ import Products from './Products';
 import LatestProduct from './LatestProduct';
 import FeatureProduct from './FeatureProducts';
 import TopSellingProduct from './TopSellingProduct';
-import Search from '../../components/Search'
+import Search from '../../components/Search';
 import {useNavigation} from '@react-navigation/native';
 import Product from '../../components/Products';
 // const Product = [
@@ -99,7 +99,6 @@ import Product from '../../components/Products';
 //   },
 // ];
 
-
 export default function index() {
   const nav = useNavigation();
   return (
@@ -117,7 +116,7 @@ export default function index() {
         style={{
           flex: 1,
         }}>
-          <Search/>
+        <Search />
         {/* <TextInputClass
           style={{
             flex: 1,
@@ -134,7 +133,7 @@ export default function index() {
         /> */}
         <Ticker />
         <OrderPromotion />
-        <Products navigation={nav} item={Product}/>
+        <Products navigation={nav} item={Product} />
         <LatestProduct navigation={nav} item={Product} />
         <FeatureProduct navigation={nav} item={Product} />
         <TopSellingProduct navigation={nav} item={Product} />
