@@ -22,21 +22,27 @@ import Dashboard from '../Views/Dashboard/index';
 import React, {Component} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Tabbar from './Tabbar';
-import BusinessDetails from '../Views/Profile/BusinessDetails';
+import PrivacyNote from '../Views/PrivacyNote/index';
+import TermsCondition from '../Views/TermsCondition';
 const Stack = createNativeStackNavigator();
 export default class MainStack extends Component {
   render() {
     return (
-      <Stack.Navigator
-        screenOptions={{headerShown: false}}
-        initialRouteName={'BusinessDetails'}>
+      <Stack.Navigator initialRouteName={'Tabbar'}>
         <Stack.Screen
-          name="Tabbar"
-          component={Tabbar}
+          name="TermsCondition"
+          component={TermsCondition}
           options={{
             headerShown: false,
           }}
         />
+        {/* <Stack.Screen
+          name="Dashboard"
+          component={Dashboard}
+          options={{
+            headerShown: false,
+          }}
+        /> */}
       </Stack.Navigator>
     );
   }

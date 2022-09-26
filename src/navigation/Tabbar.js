@@ -12,10 +12,15 @@ import {Image} from 'react-native-animatable';
 import * as Animatable from 'react-native-animatable';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ProductDetails from '../Views/ProductDetails';
+<<<<<<< HEAD
 import BusinessDetails from '../Views/Profile/BusinessDetails';
 import PrivacyNote from '../Views/PrivacyNote/index';
 import TermsCondition from '../Views/TermsCondition';
 import FAQ from '../Views/FAQ/index';
+=======
+import CustomDrawer from './CustomDrawer';
+
+>>>>>>> 33871dcd019010064aa14c0d5082741de22a1523
 const Tab = createBottomTabNavigator();
 
 // const CustomeTabBarButton =({children ,onPress})=>{
@@ -41,6 +46,7 @@ const DashboardStack = () => {
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name={'Dashboard'} component={Dashboard}></Stack.Screen>
       <Stack.Screen name={'AllItem'} component={ViewAll}></Stack.Screen>
+<<<<<<< HEAD
       <Stack.Screen
         name={'ProductDetails'}
         component={ProductDetails}></Stack.Screen>
@@ -85,6 +91,11 @@ const ProfileStack = () => {
           headerShown: false,
         }}
       />
+=======
+      <Stack.Screen name={'ProductDetails'} component={ProductDetails}></Stack.Screen>
+
+
+>>>>>>> 33871dcd019010064aa14c0d5082741de22a1523
     </Stack.Navigator>
   );
 };
@@ -169,8 +180,15 @@ const Tabbar = () => {
       />
 
       <Tab.Screen
+      // navigation.toggleDrawer();
         name="Categories"
-        component={Categories}
+        component={CustomDrawer}
+        listeners={({ navigation }) => ({
+          tabPress: e => {
+            navigation.dispatch(navigation.toggleDrawer())
+    
+            e.preventDefault()
+          }})}
         options={{
           tabBarIcon: ({focused}) => (
             <View
@@ -193,6 +211,16 @@ const Tabbar = () => {
                   tintColor: 'white',
                 }}
               />
+               <Text
+                style={{
+                  color: focused ? '#d44f46' : 'grey',
+                  fontSize: 10,
+                  textAlign: 'center',
+                  color:"white",
+                  marginTop:2
+                }}>
+                Categories
+              </Text>
             </View>
           ),
           // tabBarButton:(props)=>(
