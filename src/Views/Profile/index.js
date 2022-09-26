@@ -1,5 +1,7 @@
-import {Text, View, Image, TouchableOpacity} from 'react-native';
+import {Text, View, Image, TouchableOpacity, ScrollView} from 'react-native';
 import React, {Component} from 'react';
+import BusinessDetails from './BusinessDetails';
+import PrivacyNote from '../PrivacyNote';
 const Data = [
   {
     ScreenName: 'Mera Profit',
@@ -18,11 +20,26 @@ const Data = [
     ScreenName: 'Followed Shops',
     icon: require('../../Images/shop.png'),
   },
+  {
+    ScreenName: 'Category View',
+    icon: require('../../Images/bank.png'),
+  },
+  {
+    ScreenName: 'Privacy Policy',
+    icon: require('../../Images/help.png'),
+  },
+  {
+    ScreenName: 'Terms and Condition',
+    icon: require('../../Images/home.png'),
+  },
 ];
 export default class index extends Component {
   render() {
+    const {navigation} = this.props;
     return (
-      <View style={{flex: 1, paddingHorizontal: 20}}>
+      <ScrollView
+        contentContainerStyle={{paddingBottom: 120, paddingHorizontal: 20}}
+        style={{flex: 1}}>
         <Text
           style={{
             marginTop: 10,
@@ -152,6 +169,15 @@ export default class index extends Component {
         {Data.map((item, index) => {
           return (
             <TouchableOpacity
+              onPress={() => {
+                item.ScreenName === 'Business ki detail'
+                  ? navigation.navigate('BusinessDetails')
+                  : item.ScreenName === 'Privacy Policy'
+                  ? navigation.navigate('PrivacyNote')
+                  : item.ScreenName === 'Terms and Condition'
+                  ? navigation.navigate('TermsCondition')
+                  : null;
+              }}
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
@@ -164,7 +190,7 @@ export default class index extends Component {
                   textAlign: 'center',
                   fontSize: 18,
                   fontFamily: 'Poppins-SemiBold',
-                  fontWeight: 'bold',
+                  // fontWeight: 'bold',
                 }}>
                 {item.ScreenName}
               </Text>
@@ -180,7 +206,7 @@ export default class index extends Component {
             </TouchableOpacity>
           );
         })}
-      </View>
+      </ScrollView>
     );
   }
 }

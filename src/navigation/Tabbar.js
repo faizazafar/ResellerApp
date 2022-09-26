@@ -12,7 +12,10 @@ import {Image} from 'react-native-animatable';
 import * as Animatable from 'react-native-animatable';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ProductDetails from '../Views/ProductDetails';
-
+import BusinessDetails from '../Views/Profile/BusinessDetails';
+import PrivacyNote from '../Views/PrivacyNote/index';
+import TermsCondition from '../Views/TermsCondition';
+import FAQ from '../Views/FAQ/index';
 const Tab = createBottomTabNavigator();
 
 // const CustomeTabBarButton =({children ,onPress})=>{
@@ -38,8 +41,50 @@ const DashboardStack = () => {
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name={'Dashboard'} component={Dashboard}></Stack.Screen>
       <Stack.Screen name={'AllItem'} component={ViewAll}></Stack.Screen>
-      <Stack.Screen name={'ProductDetails'} component={ProductDetails}></Stack.Screen>
-
+      <Stack.Screen
+        name={'ProductDetails'}
+        component={ProductDetails}></Stack.Screen>
+    </Stack.Navigator>
+  );
+};
+const ProfileStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="PrivacyNote"
+        component={PrivacyNote}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="TermsCondition"
+        component={TermsCondition}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="BusinessDetails"
+        component={BusinessDetails}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="FAQ"
+        component={FAQ}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   );
 };
@@ -49,6 +94,7 @@ const Tabbar = () => {
       screenOptions={{
         tabBarShowLabel: false,
         tabBarHideOnKeyboard: true,
+        headerShown: false,
         tabBarStyle: {
           borderTopEndRadius: 30,
           borderTopLeftRadius: 30,
@@ -68,7 +114,9 @@ const Tabbar = () => {
           tabBarShowLabel: false,
           headerShown: false,
           tabBarIcon: ({focused}) => (
-            <Animatable.View animation={'bounceIn'}>
+            <Animatable.View
+              style={{justifyContent: 'center', alignItems: 'center'}}
+              animation={'bounceIn'}>
               <Image
                 source={require('../../src/assets/homefill.png')}
                 resizeMode="contain"
@@ -95,7 +143,9 @@ const Tabbar = () => {
         component={Orders}
         options={{
           tabBarIcon: ({focused}) => (
-            <Animatable.View animation={'bounceIn'}>
+            <Animatable.View
+              animation={'bounceIn'}
+              style={{justifyContent: 'center', alignItems: 'center'}}>
               <Image
                 source={require('../../src/assets/order.png')}
                 resizeMode="contain"
@@ -156,7 +206,9 @@ const Tabbar = () => {
         component={Shares}
         options={{
           tabBarIcon: ({focused}) => (
-            <Animatable.View animation={'bounceIn'}>
+            <Animatable.View
+              animation={'bounceIn'}
+              style={{justifyContent: 'center', alignItems: 'center'}}>
               <Image
                 source={require('../../src/assets/shares.png')}
                 resizeMode="contain"
@@ -180,10 +232,12 @@ const Tabbar = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={Profile}
+        component={ProfileStack}
         options={{
           tabBarIcon: ({focused}) => (
-            <Animatable.View animation={'bounceIn'}>
+            <Animatable.View
+              animation={'bounceIn'}
+              style={{justifyContent: 'center', alignItems: 'center'}}>
               <Image
                 source={require('../../src/assets/pro.png')}
                 resizeMode="contain"
