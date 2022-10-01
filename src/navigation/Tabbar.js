@@ -11,6 +11,15 @@ import {Image} from 'react-native-animatable';
 import * as Animatable from 'react-native-animatable';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ProductDetails from '../Views/ProductDetails';
+import BusinessDetails from '../Views/Profile/BusinessDetails';
+import PrivacyNote from '../Views/PrivacyNote/index';
+import TermsCondition from '../Views/TermsCondition';
+import BankDetails from '../Views/BankDetails';
+import MeraProfit from '../Views/MeraProfit';
+import ShopFollowed from '../Views/ShopFollowed';
+import Catalogs from '../Views/Catalogs';
+import FAQ from '../Views/FAQ/index';
+
 import CustomDrawer from './CustomDrawer';
 import CustomerDetails from '../Views/Customer/CustomerDetails';
 
@@ -39,19 +48,94 @@ const DashboardStack = () => {
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name={'Dashboard'} component={Dashboard}></Stack.Screen>
       <Stack.Screen name={'AllItem'} component={ViewAll}></Stack.Screen>
-      <Stack.Screen name={'ProductDetails'} component={ProductDetails}></Stack.Screen>
       <Stack.Screen name={'CustomerDetails'} component={CustomerDetails}
 options={{headerShown:true  ,animation:"slide_from_right" }}
       ></Stack.Screen>
+      <Stack.Screen
+        component={ProductDetails}></Stack.Screen>
     </Stack.Navigator>
   );
 };
+const ProfileStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="MeraProfit"
+        component={MeraProfit}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="BankDetails"
+        component={BankDetails}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="ShopFollowed"
+        component={ShopFollowed}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Catalogs"
+        component={Catalogs}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="PrivacyNote"
+        component={PrivacyNote}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="TermsCondition"
+        component={TermsCondition}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="BusinessDetails"
+        component={BusinessDetails}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="FAQ"
+        component={FAQ}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name={'ProductDetails'}
+        component={ProductDetails}></Stack.Screen>
+    </Stack.Navigator>
+  ); }
 const Tabbar = () => {
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarShowLabel: false,
         tabBarHideOnKeyboard: true,
+        headerShown: false,
         tabBarStyle: {
           borderTopEndRadius: 30,
           borderTopLeftRadius: 30,
@@ -71,7 +155,9 @@ const Tabbar = () => {
           tabBarShowLabel: false,
           headerShown: false,
           tabBarIcon: ({focused}) => (
-            <Animatable.View animation={'bounceIn'}>
+            <Animatable.View
+              style={{justifyContent: 'center', alignItems: 'center'}}
+              animation={'bounceIn'}>
               <Image
                 source={require('../../src/assets/homefill.png')}
                 resizeMode="contain"
@@ -98,7 +184,9 @@ const Tabbar = () => {
         component={Orders}
         options={{
           tabBarIcon: ({focused}) => (
-            <Animatable.View animation={'bounceIn'}>
+            <Animatable.View
+              animation={'bounceIn'}
+              style={{justifyContent: 'center', alignItems: 'center'}}>
               <Image
                 source={require('../../src/assets/order.png')}
                 resizeMode="contain"
@@ -122,15 +210,16 @@ const Tabbar = () => {
       />
 
       <Tab.Screen
-      // navigation.toggleDrawer();
+        // navigation.toggleDrawer();
         name="Categories"
         component={CustomDrawer}
-        listeners={({ navigation }) => ({
+        listeners={({navigation}) => ({
           tabPress: e => {
-            navigation.dispatch(navigation.toggleDrawer())
-    
-            e.preventDefault()
-          }})}
+            navigation.dispatch(navigation.toggleDrawer());
+
+            e.preventDefault();
+          },
+        })}
         options={{
           tabBarIcon: ({focused}) => (
             <View
@@ -153,13 +242,13 @@ const Tabbar = () => {
                   tintColor: 'white',
                 }}
               />
-               <Text
+              <Text
                 style={{
                   color: focused ? '#d44f46' : 'grey',
                   fontSize: 10,
                   textAlign: 'center',
-                  color:"white",
-                  marginTop:2
+                  color: 'white',
+                  marginTop: 2,
                 }}>
                 Categories
               </Text>
@@ -176,7 +265,9 @@ const Tabbar = () => {
         component={Shares}
         options={{
           tabBarIcon: ({focused}) => (
-            <Animatable.View animation={'bounceIn'}>
+            <Animatable.View
+              animation={'bounceIn'}
+              style={{justifyContent: 'center', alignItems: 'center'}}>
               <Image
                 source={require('../../src/assets/shares.png')}
                 resizeMode="contain"
@@ -200,10 +291,12 @@ const Tabbar = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={Profile}
+        component={ProfileStack}
         options={{
           tabBarIcon: ({focused}) => (
-            <Animatable.View animation={'bounceIn'}>
+            <Animatable.View
+              animation={'bounceIn'}
+              style={{justifyContent: 'center', alignItems: 'center'}}>
               <Image
                 source={require('../../src/assets/pro.png')}
                 resizeMode="contain"

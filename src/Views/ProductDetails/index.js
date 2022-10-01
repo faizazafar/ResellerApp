@@ -240,10 +240,11 @@ const ProductDetails = ({route , navigation}) => {
             flexDirection: 'row',
             justifyContent: 'space-evenly',
             flex: 1,
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
+            marginTop: 20,
+            // position: 'absolute',
+            // bottom: 0,
+            // left: 0,
+            // right: 0,
             // width: '100%',
             marginTop: 130,
           }}>
@@ -256,8 +257,7 @@ const ProductDetails = ({route , navigation}) => {
               padding: 10,
               backgroundColor: '#d44f46',
               borderRadius: 5,
-              marginTop: 40,
-              width: '45%',
+              // marginTop: 40,
             }}>
             <Text
               style={{
@@ -275,8 +275,7 @@ const ProductDetails = ({route , navigation}) => {
               padding: 10,
               backgroundColor: '#d44f46',
               borderRadius: 5,
-              marginTop: 40,
-              width: '45%',
+              // marginTop: 40,
             }}>
             <Text
               style={{
@@ -326,9 +325,7 @@ const ProductDetails = ({route , navigation}) => {
                   alignItems: 'center',
                 }}>
                 <DropDownPicker
-                  containerStyle={{width: '50%'}}
-                  textColor="#fff"
-                  style={{backgroundColor: '#fff', borderWidth: 0.5}}
+                  containerStyle={{width: '50%', opacity: 0.5}}
                   // style={{ width:'50%'}}
                   open={open}
                   value={value}
@@ -367,7 +364,6 @@ const ProductDetails = ({route , navigation}) => {
                   />
                 </TouchableOpacity>
               </View>
-
               <View
                 style={{
                   // backgroundColor: '#fafafa',
@@ -376,6 +372,7 @@ const ProductDetails = ({route , navigation}) => {
                   opacity: 0.5,
                   // justifyContent: 'center',
                   marginVertical: 10,
+                  marginTop: open ? 90 : 10,
                 }}>
                 <TextInputClass
                   image={require('../../Images/profit.png')}
