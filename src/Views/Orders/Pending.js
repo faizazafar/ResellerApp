@@ -6,7 +6,7 @@ const Pending = () => {
     <ScrollView>
     <View style={{flex:1 , alignItems:"center" 
 , justifyContent:"center" }}>
-      <Text>No items to show</Text>
+      <Text style={{ color:"black"}}>No items to show</Text>
     </View>
     </ScrollView>
   )

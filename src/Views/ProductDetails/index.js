@@ -17,7 +17,7 @@ import Modal from 'react-native-modal';
 import DropDownPicker from 'react-native-dropdown-picker';
 import TextInputClass from '../../components/TextInput';
 
-const ProductDetails = ({route}) => {
+const ProductDetails = ({route , navigation}) => {
   const {productId} = route.params;
   const [open, setOpen] = useState(false);
   const [profitValue, setProfitValue] = useState(0);
@@ -247,8 +247,11 @@ const ProductDetails = ({route}) => {
             // width: '100%',
             marginTop: 130,
           }}>
+        
           <TouchableOpacity
-            onPress={() => setShowModal(true)}
+            onPress={() => {setShowModal(!showModal)
+              console.log("jd")
+            }}
             style={{
               padding: 10,
               backgroundColor: '#d44f46',
@@ -412,7 +415,9 @@ const ProductDetails = ({route}) => {
               })}
 
               <TouchableOpacity
-                onPress={() => ''}
+                onPress={() =>{ 
+                  console.log("jd")
+                  navigation.navigate('CustomerDetails')}}
                 style={{
                   padding: 10,
                   backgroundColor: '#d44f46',

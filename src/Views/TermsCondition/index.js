@@ -1,7 +1,7 @@
 import {Dimensions, ScrollView, Text, View} from 'react-native';
 import React, {Component} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-export default class index extends Component {
+export default class TermsConditions  extends Component {
   render() {
     return (
       <View

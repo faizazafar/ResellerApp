@@ -7,12 +7,12 @@ import Orders from '../Views/Orders';
 import Shares from '../Views/Shares';
 import Profile from '../Views/Profile';
 import ViewAll from '../Views/Dashboard/VIewAll';
-
 import {Image} from 'react-native-animatable';
 import * as Animatable from 'react-native-animatable';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ProductDetails from '../Views/ProductDetails';
 import CustomDrawer from './CustomDrawer';
+import CustomerDetails from '../Views/Customer/CustomerDetails';
 
 const Tab = createBottomTabNavigator();
 
@@ -40,8 +40,9 @@ const DashboardStack = () => {
       <Stack.Screen name={'Dashboard'} component={Dashboard}></Stack.Screen>
       <Stack.Screen name={'AllItem'} component={ViewAll}></Stack.Screen>
       <Stack.Screen name={'ProductDetails'} component={ProductDetails}></Stack.Screen>
-
-
+      <Stack.Screen name={'CustomerDetails'} component={CustomerDetails}
+options={{headerShown:true  ,animation:"slide_from_right" }}
+      ></Stack.Screen>
     </Stack.Navigator>
   );
 };

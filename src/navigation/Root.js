@@ -14,7 +14,7 @@ const RootStack = () => {
     <NavigationContainer>
       <Root.Navigator
         screenOptions={{headerShown: false}}
-        initialRouteName={'MainStack'}>
+        initialRouteName={'Splash'}>
         <Root.Screen
           name="Splash"
           component={Splash}
