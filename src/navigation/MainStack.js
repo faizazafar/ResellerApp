@@ -30,8 +30,8 @@ export default class MainStack extends Component {
     return (
       <Stack.Navigator initialRouteName={'Tabbar'}>
         <Stack.Screen
-          name="TermsCondition"
-          component={TermsCondition}
+          name="Tabbar"
+          component={Tabbar}
           options={{
             headerShown: false,
           }}

@@ -24,7 +24,7 @@ export default class index extends Component {
           </Text>
         </LinearGradient>
         <ScrollView
-          contentContainerStyle={{paddingBottom: 30, paddingHorizontal: 10}}
+          contentContainerStyle={{paddingBottom: 100, paddingHorizontal: 10}}
           showsVerticalScrollIndicator={false}>
           <Text
             style={{

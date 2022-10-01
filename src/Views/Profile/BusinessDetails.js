@@ -62,7 +62,6 @@ export default class BusinessDetails extends Component {
             alignSelf: 'center',
           }}
           onPress={() => {
-            this.props.navigation.navigate('FAQ');
             console.log(this.props);
           }}>
           <Text

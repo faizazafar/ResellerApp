@@ -12,15 +12,17 @@ import {Image} from 'react-native-animatable';
 import * as Animatable from 'react-native-animatable';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ProductDetails from '../Views/ProductDetails';
-<<<<<<< HEAD
 import BusinessDetails from '../Views/Profile/BusinessDetails';
 import PrivacyNote from '../Views/PrivacyNote/index';
 import TermsCondition from '../Views/TermsCondition';
+import BankDetails from '../Views/BankDetails';
+import MeraProfit from '../Views/MeraProfit';
+import ShopFollowed from '../Views/ShopFollowed';
+import Catalogs from '../Views/Catalogs';
 import FAQ from '../Views/FAQ/index';
-=======
+
 import CustomDrawer from './CustomDrawer';
 
->>>>>>> 33871dcd019010064aa14c0d5082741de22a1523
 const Tab = createBottomTabNavigator();
 
 // const CustomeTabBarButton =({children ,onPress})=>{
@@ -46,7 +48,6 @@ const DashboardStack = () => {
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name={'Dashboard'} component={Dashboard}></Stack.Screen>
       <Stack.Screen name={'AllItem'} component={ViewAll}></Stack.Screen>
-<<<<<<< HEAD
       <Stack.Screen
         name={'ProductDetails'}
         component={ProductDetails}></Stack.Screen>
@@ -64,6 +65,35 @@ const ProfileStack = () => {
         }}
       />
       <Stack.Screen
+        name="MeraProfit"
+        component={MeraProfit}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="BankDetails"
+        component={BankDetails}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="ShopFollowed"
+        component={ShopFollowed}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Catalogs"
+        component={Catalogs}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
         name="PrivacyNote"
         component={PrivacyNote}
         options={{
@@ -77,6 +107,7 @@ const ProfileStack = () => {
           headerShown: false,
         }}
       />
+
       <Stack.Screen
         name="BusinessDetails"
         component={BusinessDetails}
@@ -91,11 +122,9 @@ const ProfileStack = () => {
           headerShown: false,
         }}
       />
-=======
-      <Stack.Screen name={'ProductDetails'} component={ProductDetails}></Stack.Screen>
-
-
->>>>>>> 33871dcd019010064aa14c0d5082741de22a1523
+      <Stack.Screen
+        name={'ProductDetails'}
+        component={ProductDetails}></Stack.Screen>
     </Stack.Navigator>
   );
 };
@@ -180,15 +209,16 @@ const Tabbar = () => {
       />
 
       <Tab.Screen
-      // navigation.toggleDrawer();
+        // navigation.toggleDrawer();
         name="Categories"
         component={CustomDrawer}
-        listeners={({ navigation }) => ({
+        listeners={({navigation}) => ({
           tabPress: e => {
-            navigation.dispatch(navigation.toggleDrawer())
-    
-            e.preventDefault()
-          }})}
+            navigation.dispatch(navigation.toggleDrawer());
+
+            e.preventDefault();
+          },
+        })}
         options={{
           tabBarIcon: ({focused}) => (
             <View
@@ -211,13 +241,13 @@ const Tabbar = () => {
                   tintColor: 'white',
                 }}
               />
-               <Text
+              <Text
                 style={{
                   color: focused ? '#d44f46' : 'grey',
                   fontSize: 10,
                   textAlign: 'center',
-                  color:"white",
-                  marginTop:2
+                  color: 'white',
+                  marginTop: 2,
                 }}>
                 Categories
               </Text>

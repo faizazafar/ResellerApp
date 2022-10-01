@@ -1,8 +1,9 @@
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import TextTicker from 'react-native-text-ticker';
+import {DrawerActions} from '@react-navigation/native';
 
-export default function Ticker() {
+export default function Ticker({navigation}) {
   return (
     <View
       style={{

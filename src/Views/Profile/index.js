@@ -21,7 +21,7 @@ const Data = [
     icon: require('../../Images/shop.png'),
   },
   {
-    ScreenName: 'Category View',
+    ScreenName: 'Catalogs View',
     icon: require('../../Images/bank.png'),
   },
   {
@@ -176,6 +176,16 @@ export default class index extends Component {
                   ? navigation.navigate('PrivacyNote')
                   : item.ScreenName === 'Terms and Condition'
                   ? navigation.navigate('TermsCondition')
+                  : item.ScreenName === 'Bank Details Add Kerain'
+                  ? navigation.navigate('BankDetails')
+                  : item.ScreenName === 'Mera Profit'
+                  ? navigation.navigate('MeraProfit')
+                  : item.ScreenName === 'Help'
+                  ? navigation.navigate('FAQ')
+                  : item.ScreenName === 'Followed Shops'
+                  ? navigation.navigate('ShopFollowed')
+                  : item.ScreenName === 'Catalogs View'
+                  ? navigation.navigate('Catalogs')
                   : null;
               }}
               style={{
